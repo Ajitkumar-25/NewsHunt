@@ -82,7 +82,7 @@ export class News extends Component {
 
   async componentDidMount() {
     let url =
-      "https://newsapi.org/v2/top-headlines?country=in&apiKey=4b7f0afcb8d2442fb6f2a0a0639564d3&page=1";
+      `https://newsapi.org/v2/top-headlines?country=in&apiKey=4b7f0afcb8d2442fb6f2a0a0639564d3&page=1&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({
@@ -92,25 +92,21 @@ export class News extends Component {
   }
 
   handlepreviouspage = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=4b7f0afcb8d2442fb6f2a0a0639564d3&page=${
-      this.state.page - 1
-    }&pagesize=20`;
+    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=4b7f0afcb8d2442fb6f2a0a0639564d3&page=${this.state.page - 1}&pagesize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
-    this.setState({ articles: parsedData.articles, page: this.state.page - 1 });
+    this.setState({ articles: parsedData.articles, page: this.state.page-1 });
   };
 
   handlenextpage = async () => {
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults/20)) {
+    if (this.state.page+1 > Math.ceil(this.state.totalResults/this.props.pageSize)) {
     } else {
-      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=4b7f0afcb8d2442fb6f2a0a0639564d3&page=${
-        this.state.page + 1
-      }&pagesize=20`;
+      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=4b7f0afcb8d2442fb6f2a0a0639564d3&page=${this.state.page + 1}&pagesize=${this.props.pageSize}`;
       let data = await fetch(url);
       let parsedData = await data.json();
       this.setState({
         articles: parsedData.articles,
-        page: this.state.page + 1,
+        page: this.state.page+1,
       });
     }
   };
@@ -118,7 +114,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container">
-        <h1>NewsHunt Top Headlines</h1>
+        <h1 className="text-center">NewsHunt Top Headlines</h1>
         <div className="row">
           {this.state.articles.map((element) => {
             return (
