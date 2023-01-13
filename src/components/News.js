@@ -76,8 +76,8 @@ export class News extends Component {
     return (
       <>
         <h1
-          className="text-center"
-          style={{ marginTop: "90px", marginBottom: "30px" }}
+          className=" Heading text-center"
+          style={{ marginTop: "90px", marginBottom: "30px",color:"white"}}
         >
           NewsHunt - Top {this.capitalizeFirstLetter(this.props.category)}{" "}
           Headlines
@@ -89,7 +89,7 @@ export class News extends Component {
           hasMore={this.state.articles.length !== this.state.totalResults}
           loader={<Spinner />}
         >
-          <div className="container">
+          <div className="container" >
             <div className="row">
               {this.state.articles.map((element) => {
                 return (

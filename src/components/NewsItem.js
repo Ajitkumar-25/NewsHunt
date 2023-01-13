@@ -21,13 +21,12 @@ export class NewsItem extends Component {
             alt="..."
           />
           <div className="card-body">
-            <h5 className="card-title">{title}...</h5>
-
+            <h4 className="card-title">{title}...</h4>
             <p className="card-text">{description}...</p>
             <p className="card-text">
               <small className="text-muted">
                 {" "}
-                <strong>
+                <strong style={{color:'white'}}>
                   By {!author ? "unknown" : author} on{" "}
                   {new Date(date).toGMTString()}
                 </strong>

@@ -1,1 +1,21 @@
-
+body{
+background-color: black;
+}
+.card{
+    border: 3px solid white;
+    background-color: black;
+    color: white;
+    
+}
+.Heading{
+    font-family: 'Roboto Slab', serif;
+    font-weight: bolder;
+}
+.card-body {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bolder;
+}
+.card-title{
+    font-family: 'Roboto Slab', serif;
+    font-weight: bolder;
+}

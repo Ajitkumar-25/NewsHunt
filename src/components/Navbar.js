@@ -4,9 +4,10 @@ export class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg  navbar-dark bg-dark d-flex justify-content-between fixed-top">
-          <div className="container-fluid">
+        <nav className="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
+          <div className="container-fluid ">
             <Link className="navbar-brand" to="/">
+            {/* <img src="/C:/Users/AJIT/Desktop/REACT/newshunt/src/components/newspaper-icon-news-dark-background-116857369.svg" width="30" height="30" class="d-inline-block align-top" alt="wfrvfdve"/> */}
               NewsHunt
             </Link>
             <button
@@ -67,6 +68,10 @@ export class Navbar extends Component {
                   </Link>{" "}
                 </li>
               </ul>
+              <form class="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+      {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
+    </form>
             </div>
           </div>
         </nav>
